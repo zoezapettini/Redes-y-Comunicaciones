@@ -1,0 +1,721 @@
+<html><head><title>Práctica 2</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body class="pdf es-LA" lang="es-LA"><article id="ff171af8-1d5b-4e6a-9e88-f9b02098967d" class="page sans"><header><h1 class="page-title">Práctica 2</h1><p class="page-description"></p></header><div class="page-body"><p id="8c326357-2c5b-47ca-9222-181acb3b11ff" class="">
+</p><ol type="1" id="ba814205-0d24-470f-9001-a4b5e0dcb935" class="numbered-list" start="1"><li>¿Cuál es la función de la capa de aplicación?<ul id="21ffcf6b-59a4-4466-ac3c-54b472143fe6" class="bulleted-list"><li style="list-style-type:disc">Responsable de soportar aplicaciones de red</li></ul><ul id="3053c68e-27c1-46f2-beb7-fc3817d38b8c" class="bulleted-list"><li style="list-style-type:disc">Incluye muchos protocolos para cumplir con lo anterior<ul id="98d376e4-999a-4f6f-a90a-b7a8aabeed62" class="bulleted-list"><li style="list-style-type:circle">HTTP para soportar la Web</li></ul><ul id="539c482d-8940-4456-a05a-fdfe6a9359ab" class="bulleted-list"><li style="list-style-type:circle">SMTP para soportar correo electrónico</li></ul><ul id="73e7d63c-8929-4a76-b597-ddde1f33d033" class="bulleted-list"><li style="list-style-type:circle">FTP para soportar transferencia de archivos</li></ul></li></ul></li></ol><ol type="1" id="60e2879e-0014-41ad-8838-25d1f7725871" class="numbered-list" start="2"><li>Si dos procesos deben comunicarse:<br/>a. ¿Cómo podrían hacerlo si están en diferentes máquinas?<br/><p id="80219f51-b6c9-4b4e-a204-969e1cc0f96f" class="">Si están en diferentes máquinas pueden hacerlo a través del envío de mensajes sobre una red de computadores:</p><ul id="5c9a44c3-d8e9-49a2-a153-786793515831" class="bulleted-list"><li style="list-style-type:disc">El proceso emisor crea y envía mensajes sobre la red</li></ul><ul id="c825b892-c95b-4111-aec2-9841fb49e07c" class="bulleted-list"><li style="list-style-type:disc">El proceso receptor los recibe y seguramente responde enviando mensajes de vuelta</li></ul><p id="61dee2f5-db8f-4d28-a39e-9fd47b64cee8" class="">Las aplicaciones de web tienen protocolos de la capa de aplicación que definen el formato y orden en que los procesos intercambian mensajes y también las acciones tomadas en la transmisión o recepción de los mismos</p><p id="ff3e8797-ffc5-4c46-9e84-0ecd98104119" class=""><br/>b. Y si están en la misma máquina, ¿qué alternativas existen?<br/><div class="indented"><p id="83059f26-2795-48b7-972b-5fd71be43726" class="">Si están en la misma página es a través de la comunicación interproceso</p></div></p></li></ol><ol type="1" id="ac16ffdb-7e94-4297-978f-51a7f5b89163" class="numbered-list" start="3"><li>Explique brevemente cómo es el modelo Cliente/Servidor. Dé un ejemplo de un sistema<br/>Cliente/Servidor en la “vida cotidiana” y un ejemplo de un sistema informático que siga el<br/>modelo Cliente/Servidor. ¿Conoce algún otro modelo de comunicación? (se lo robé a Agus)<br/><p id="2672dc68-02e1-47b5-9636-fae9f0baee4d" class="">Existe un host siempre activo, denominado servidor, con una dirección fija y conocida llamada dirección IP. Este servidor da (valga la redundancia) servicio a las solicitudes de muchos otros hosts, que son los clientes. Para ello el servidor recibe y sirve las solicitudes de los clientes (estos mismos no se comunican directamente entre sí).<br/>Debido a que el servidor tiene una dirección fija y conocida, y siempre está<br/>activo, un cliente siempre puede contactar con él enviando un paquete a su<br/>dirección IP.<br/>A menudo, en una aplicación cliente-servidor un único host servidor es incapaz de responder a todas las solicitudes de sus clientes. Por esta razón, en las arquitecturas cliente-servidor suele utilizarse un centro de datos, que alberga un gran número de hosts, para crear un servidor virtual de gran capacidad.<br/>Un ejemplo de la vida cotidiana puede ser el intercambio entre cliente-vendedor en una tienda. Un ejemplo de un sistema informático que siga este modelo es una aplicación web, en donde el cliente sería el navegador web y el servidor sería el servidor web<br/>Otro modelo de comunicación es P2P (Peer-to-Peer) en donde los dispositivos participantes son iguales y pueden actuar tanto como clientes como servidores para compartir recursos directamente entre sí, sin una infraestructura centralizada. Un ejemplo de P2P es BitTorrent.<br/></p></li></ol><ol type="1" id="f5540021-3784-4f99-8154-536461f024ff" class="numbered-list" start="4"><li>Describa la funcionalidad de la entidad genérica “Agente de usuario” o “User agent”.<ul id="b63aa970-de6f-4c97-b8c7-a3449686d1c2" class="bulleted-list"><li style="list-style-type:disc">Es una interfaz entre el usuario y la aplicación de red</li></ul><ul id="1b7dc21a-3f76-4d57-a4ca-35f2ea372423" class="bulleted-list"><li style="list-style-type:disc">Ejemplos:<ul id="459f7cdf-1ec0-49e9-9cde-6b7c0774281f" class="bulleted-list"><li style="list-style-type:circle">En el caso de la web, un agente de red es el navegador<ul id="7fc9599e-c7cc-4224-9e29-dc124f21cd80" class="bulleted-list"><li style="list-style-type:square">permite al usuario ver páginas web, navegar, etc</li></ul><ul id="39690583-3c7c-478b-99d4-5a17d550e705" class="bulleted-list"><li style="list-style-type:square">implementa el lado del cliente del protocolo HTTP por lo que envía y recibe mensajes a través de un socket </li></ul><ul id="97dd7935-db11-4ac9-ac26-498e13b4ab87" class="bulleted-list"><li style="list-style-type:square">proporciona una interfaz al usuario</li></ul></li></ul><ul id="79b72d5e-e333-4a85-92d1-d91e41fffbac" class="bulleted-list"><li style="list-style-type:circle">En el caso de un correo electrónico, el agente es un lector de correo<ul id="a22da09f-8a63-4a69-9a95-3216677e939b" class="bulleted-list"><li style="list-style-type:square">permite al usuario leer y componer mensajes</li></ul><ul id="e619643a-952b-42df-b1cc-5c09da030552" class="bulleted-list"><li style="list-style-type:square">proporciona al usuario una interfaz gráfica de usuario</li></ul></li></ul></li></ul></li></ol><ol type="1" id="c8cb50da-cd62-4b4f-ba02-06510970eb7b" class="numbered-list" start="5"><li>¿Qué son y en qué se diferencian HTML y HTTP?<p id="ffebe192-0d61-4faa-bb56-9c3db5a70287" class="">
+</p><p id="c823c02f-4abc-4882-9aff-76222227e8d0" class="">HTML es el lenguaje de marcado utilizado para crear la estructura y el contenido de las páginas web. La mayoría de las páginas web están constituidas por un archivo base HTML y varios objetos referenciados. Por ejemplo, si una página web contiene texto HTML y cinco imágenes JPEG, entonces la página web contiene seis objetos: el archivo base HTML y las cinco imágenes.  El archivo base HTML hace referencia a los otros objetos contenidos en la página mediante los URL de los objetos. Cada URL tiene dos componentes: el nombre de host del servidor que alberga al objeto y el nombre de la ruta al objeto.<br/>El navegador web (cliente) es el que interpreta y renderiza el código HTML para mostrar la página web al usuario y el servidor web es el encargado de enviar los archivos HTML. El contenido HTML se encuentra en la entidad de respuesta, y es lo que el servidor envía al cliente como parte de la respuesta a la solicitud HTTP. El envió y recibimiento de este mismo se hace a través de mensajes respetando el protocolo HTTP.<br/></p><p id="202b5a2c-3671-4166-9524-fe576cd69dd9" class="">Por otro lado, <em><strong><span style="border-bottom:0.05em solid">HTTP </span></strong></em>es el protocolo de transferencia de hipertexto. Está implementado en dos programas:</p><ul id="028144d6-1947-4e49-9757-505650ea88d6" class="bulleted-list"><li style="list-style-type:disc">Programa cliente</li></ul><ul id="51d8c6fc-2e43-42ba-b2ef-b65cb41e926a" class="bulleted-list"><li style="list-style-type:disc">Programa servidor </li></ul><p id="d43508b0-c037-49a5-bd28-67e8a2d03134" class="">Ambos conversan entre sí intercambiando mensajes HTTP, el cual define la estructura de esos mensajes y cómo intercambiarlos.</p><p id="6c65c359-5347-4f58-b83f-5a2b5e081479" class="">Además </p><ul id="8046ada9-ab1c-4884-a071-38998253b43a" class="bulleted-list"><li style="list-style-type:disc">Define como los clientes web demandan páginas web y cómo los servidores las transfieren a los clientes</li></ul><p id="a321487e-9dad-4e4e-b4d3-079aa495dfd0" class="">Interacción cliente servidor</p><ul id="f79d8d86-2284-4324-bb0d-0675a57b0c8a" class="bulleted-list"><li style="list-style-type:disc">Un usuario pide una página web y el navegador envía al servidor un mensaje HTTP de petición de los objetos de la página </li></ul><ul id="5a45fa96-b5ae-40c1-8a1c-df9f04fcb4c1" class="bulleted-list"><li style="list-style-type:disc">El servidor recibe la petición y responde con un mensaje HTTP de respuesta que contiene los objetos</li></ul></li></ol><ol type="1" id="b0f92163-c02a-478b-bb1c-471054f4b6d7" class="numbered-list" start="6"><li>HTTP tiene definido un formato de mensaje para los requerimientos y las respuestas.<br/>(Ayuda: apartado “Formato de mensaje HTTP”, Kurose).<br/>a. ¿Qué información de la capa de aplicación nos indica si un mensaje es de<br/>requerimiento o de respuesta para HTTP? ¿Cómo está compuesta dicha<br/>información?¿Para qué sirven las cabeceras?<br/><p id="d9a1e9a1-aa39-4798-aad8-9158942171db" class="">Existen 2 tipos de mensajes HTTP </p><ul id="22d0cf8b-d821-4e7e-80a2-f674b95e28ec" class="bulleted-list"><li style="list-style-type:disc">Mensaje de petición/requerimiento</li></ul><ul id="238d0a95-2346-4ede-a1ca-059c3a1d84e0" class="bulleted-list"><li style="list-style-type:disc">Mensaje de respuesta</li></ul><p id="7ae2e179-9f1e-4aa4-b22c-de5f71fd7d64" class="">La <em>línea de inicio</em> indica si un mensaje es de requerimiento o de respuesta para HTTP donde en el caso de el mensaje de requerimiento es la “<strong>línea de petición</strong>” y en el caso de el de respuesta es la “<strong>línea de estado</strong>”, donde su información está compuesta de la siguiente manera:</p><p id="e8c9b730-2516-44ac-a0e4-6b5b75500b72" class=""><strong><span style="border-bottom:0.05em solid">Mensaje de petición, línea de petición</span></strong></p><figure id="ad66a592-b40f-49c6-acb6-fa32c78f4ec6" class="image"><img style="width:304.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/ce820d77-9ae1-4cb7-80fb-c9337cd5c1a8/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=574c12c6f0bd069099bfac7d3dc7e2e227b104a602319b00ebed66904e0e0174&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure></li></ol><p id="9996c2de-9ade-4ea4-afa3-ec6a22419284" class="">Posee tres campos:</p><ul id="a1810283-270f-45bc-9f3b-339f756f6385" class="bulleted-list"><li style="list-style-type:disc">Campo del método<ul id="01f871b4-cee5-4a7b-83b4-63f8b7376f24" class="bulleted-list"><li style="list-style-type:circle">puede tomar distintos valores como GET, POST, HEAD<ul id="1afc523e-e46d-47d4-8b0b-28b3cda1094e" class="bulleted-list"><li style="list-style-type:square">GET ⇒ se usa cuando el navegador demanda un objeto que identifica en el campo url, como se ve en el ejemplo </li></ul><ul id="56db64ff-50f0-4382-b727-dca61890a82e" class="bulleted-list"><li style="list-style-type:square">POST ⇒ se suele usar cuando el usuario rellena un formulario, donde este pide una página web del servidor pero los contenidos específicos de la misma dependen de lo que el usuario haya introducido en el formulario</li></ul><ul id="f7fe3a3b-95ca-4182-8b0d-0250dcb25d09" class="bulleted-list"><li style="list-style-type:square">HEAD ⇒ si un servidor recibe una petición con este método, responde con un mensaje HTTP sin incluir el objeto pedido</li></ul></li></ul></li></ul><ul id="3ffa374c-99d8-416b-b6df-dd5954ab9c3f" class="bulleted-list"><li style="list-style-type:disc">Campo de URL</li></ul><ul id="08c1b2db-cf8d-4b2a-b229-96badec0c5d4" class="bulleted-list"><li style="list-style-type:disc">Campo de versión HTTP</li></ul><p id="62123431-caec-4120-ad6b-6918f9260aa8" class="">Ejemplo:<div class="indented"><figure id="c50b5de3-a28f-4fa5-b59b-afbea70cfd76" class="image"><img style="width:288px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/03dcdb18-b88f-460b-8d0b-4ed400f03049/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=49dd06d354c09eb29ce4a3fd7711320a9732fff671fe457dc73040129ebf1ae2&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure></div></p><p id="ed9a489b-05b5-4f31-adb5-aa48dc909416" class="">
+</p><p id="8dce6378-84a0-4de9-a0fa-69d4a9531768" class=""><strong><span style="border-bottom:0.05em solid">Mensaje de respuesta, línea de estado</span></strong></p><figure id="42542bf1-8a63-45ae-a47c-37ef149152b7" class="image"><img style="width:282px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/5d2b61a3-e432-496c-9d59-886bb821fc1c/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=d3bc8ac3e5aac1b4c49a1e470baca9dbf990c2d9268c7babd901f4d9a2c51975&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="0f93b839-3e1b-41b5-a90e-376a12029fe1" class="">Posee tres campos:</p><ul id="6785a07f-fcc9-4066-b211-ca84786fdb0e" class="bulleted-list"><li style="list-style-type:disc">Campo de versión del protocolo</li></ul><ul id="1e15b842-6afd-465d-b378-b14d8251f5a5" class="bulleted-list"><li style="list-style-type:disc">Código de estatus</li></ul><ul id="2639bb86-7063-4f84-8dfa-92ce1bad89d9" class="bulleted-list"><li style="list-style-type:disc">Mensaje de estatus</li></ul><p id="82c360a3-96a6-490e-86ea-95bbe2bd1f37" class="">El código de estatus y el mensaje indican el resultado de la petición, como por ejemplo:</p><ul id="28c86a2d-c988-4319-82f0-d1f65a7f5b0f" class="bulleted-list"><li style="list-style-type:disc">202 OK ⇒ petición exitosa, se devuelve la info en la respuesta</li></ul><ul id="c1add15c-6e07-4a92-8260-c5667f4672f2" class="bulleted-list"><li style="list-style-type:disc">301 Moved Permanently ⇒ el objeto demandado fue movido permanentemente, el nuevo URL del objeto se especifica en la cabecera Location del mensaje de rta</li></ul><ul id="4ce1cc77-c69b-4a50-9335-6aff7cba8f98" class="bulleted-list"><li style="list-style-type:disc">400 Bad Request ⇒ el documento pedido no existe en el servidor</li></ul><ul id="a3674494-4c51-43c5-81ba-aaf99ac5c0dd" class="bulleted-list"><li style="list-style-type:disc">505 HTTP Version Not Supported⇒ la versión del protocolo HTTP pedida no es soportada por el servidor </li></ul><p id="ee25710f-a6aa-441f-a34a-fc073e7f22c7" class="">Ejemplo</p><figure id="f8f83d47-5a11-4388-be43-edbe7b48b236" class="image"><img style="width:131px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/b914dfd0-ca7b-48c4-846e-09fd05f130fa/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=bf22fd511031e8342fa5399d27fca861aad2b3228699b97f43493aaa65f11c26&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="b206eec9-9129-420d-ab5c-df97e0ce6ef1" class="">b. ¿Cuál es su formato?</p><p id="c09926c9-15a2-435c-bb94-f0131ba2b517" class=""><em><span style="border-bottom:0.05em solid">Cabeceras</span></em></p><p id="7d506722-a2da-4a15-b806-e6536037512e" class="">Las cabeceras (en inglés <em>headers</em>) HTTP permiten al cliente y al servidor enviar información adicional junto a una petición o respuesta. Una cabecera de petición esta compuesta por su nombre (no sensible a las mayusculas) seguido de dos puntos &#x27;<code>:</code>&#x27;, y a continuación su valor (sin saltos de línea). La estructura de una línea de cabecera en ambos tipos de mensaje es la siguiente</p><figure id="9e52e958-9e6a-4fb8-b5d4-c20a95b28687" class="image"><img style="width:251.00001525878906px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/e3260605-4aa3-4c68-9b2f-43e4ca75b443/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=51a02c13518505881967049d32dc277d10363ce2df384d28acd78db43d3d2042&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="d5acfe58-939e-4403-8138-87542de57a33" class=""><strong><span style="border-bottom:0.05em solid">Mensaje de petición, Línea de cabecera</span></strong></p><p id="85d9d337-c2cb-4878-80ff-9d8bcb9170c5" class="">Ejemplo</p><figure id="b914c51a-6de3-4a1f-b483-48d8d16cd8b5" class="image"><img style="width:188.00001525878906px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/eb522b50-0a32-467d-9ac4-0a7334bf2779/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a4eb6d03ea118b0452f0007d88af9a607bc2d2eb8c7d15889a877fb0d87bc73f&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="95360c1d-3ee2-474b-b1b1-ec4ff928ddef" class=""><strong><span style="border-bottom:0.05em solid">Mensaje de respuesta, Línea de cabecera</span></strong></p><p id="14c6ab5b-e995-44c9-8a6b-9b829680c1eb" class="">Ejemplo</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="48913b8a-25b3-4bd6-a95e-2c04a152503f" class="code"><code class="language-Visual Basic">Connection: close
+Date: Tue, 18 Aug 2015 15:44:04 GMT
+Server: Apache/2.2.3 (CentOS)
+Last-Modified: Tue, 18 Aug 2015 15:11:03 GMT
+Content-Length: 6821
+Content-Type: text/html </code></pre><p id="8f8eece6-5262-46bb-a0d4-6d49ec0af571" class="">
+</p><ul id="24652deb-6a5d-4ba5-9b00-518e33833422" class="bulleted-list"><li style="list-style-type:disc">Connection: close<ul id="0aeb14d0-99f1-487a-8051-b05fabbdf376" class="bulleted-list"><li style="list-style-type:circle">el navegador está diciendole al servidor que no quiere usar conexiones persistentes, es decir, quiere que el servidor cierre la conexión una vez que envie el objeto pedido</li></ul><ul id="884ce1c3-79c7-472c-8c6d-da3c7965f284" class="bulleted-list"><li style="list-style-type:circle">Del lado del servidor, es para avisarle al cliente que va a cerrar la conexión</li></ul></li></ul><ul id="4c749880-9b85-4822-a751-94d8cef5c5e4" class="bulleted-list"><li style="list-style-type:disc">User-agent<ul id="1b9c5152-3ac5-48d8-b4ef-06b2dcf08e7c" class="bulleted-list"><li style="list-style-type:circle">lo especifica al tipo de navegador que está haciendo la petición al servidor</li></ul><ul id="1c4ff0e1-3fcd-4391-965b-3830474a212d" class="bulleted-list"><li style="list-style-type:circle">Es útil porque el servidor puede enviar distintas versiones del mismo objeto a distintos tipos de agentes de usuario</li></ul></li></ul><ul id="2d33bd64-f0fe-4065-af45-72afb464dd7b" class="bulleted-list"><li style="list-style-type:disc">Accept-language </li></ul><ul id="e0992c1a-34d7-41fd-8e56-9b262bfb8b15" class="bulleted-list"><li style="list-style-type:disc">Date<ul id="0c9b85c6-e6c9-4201-b1f1-8c90b1fc7275" class="bulleted-list"><li style="list-style-type:circle">fecha y hora en la que se creó y envió la rta HTTP por parte del servidor, es decir, el momento en el que el servidor recupera el objeto de su sistema de archivos, lo inserta en el mensaje de respuesta y envía el mensaje de respuesta</li></ul></li></ul><ul id="8dc76907-57cb-480b-82b7-e4d5bcf6f8d6" class="bulleted-list"><li style="list-style-type:disc">Server<ul id="8f86ce35-ecb4-44a8-b0cd-6a11ccfa4492" class="bulleted-list"><li style="list-style-type:circle">indica que el mensaje fue generado por un servidor web X</li></ul></li></ul><ul id="08770126-e4d5-4225-9dd5-12c3a6d7fab6" class="bulleted-list"><li style="list-style-type:disc">Last-Modified<ul id="58c7c13e-5a2f-45d8-a262-16688e33673a" class="bulleted-list"><li style="list-style-type:circle">fecha y hora en que el objeto se creó o fue modificado por ultima vez</li></ul></li></ul><ul id="09f23115-96ea-4be6-b30a-618c2d8490b8" class="bulleted-list"><li style="list-style-type:disc">Host<ul id="9e42c9de-33dd-44fb-97d7-d173860207b1" class="bulleted-list"><li style="list-style-type:circle">indica el host en el que reside el objeto</li></ul></li></ul><p id="70568c50-9832-4ef8-a760-65acd7fe94bd" class="">c. Suponga que desea enviar un requerimiento con la versión de HTTP 1.1 desde<br/>curl/7.74.0 a un sitio de ejemplo como <br/><a href="http://www.misitio.com/">www.misitio.com</a> para obtener el recurso<br/>/index.html. En base a lo indicado, ¿qué información debería enviarse mediante<br/>encabezados? Indique cómo quedaría el requerimiento<br/></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="e4c4490f-f56d-4b83-8edb-92d6c2e4147f" class="code"><code class="language-XML">GET /index.html HTTP 1.1
+HOST: www.mi.sitio.com
+User-Agent: curl/7.74.0</code></pre><p id="e96097ea-bbe6-4a1a-b131-c6fd14ee04cc" class="">
+</p><ol type="1" id="7d95d9d2-9fd8-404b-890c-8556954da81b" class="numbered-list" start="7"><li>Utilizando la VM, abra una terminal e investigue sobre el comando curl. Analice para qué<br/>sirven los siguientes parámetros (-I, -H, -X, -s).<br/></li></ol><p id="b81c5bd0-f03a-4769-a172-20eabd395136" class="">El comando <code>curl</code> es una herramienta de línea de comandos utilizada para transferir datos desde o hacia un servidor, utilizando diversos protocolos como HTTP, HTTPS, FTP, entre otros.</p><h3 id="9aa6a0dc-6bf0-4deb-ad1b-51a75522c854" class="">1. <code><strong>I</strong></code><strong> (o </strong><code><strong>-head</strong></code><strong>)</strong></h3><ul id="46e59f5b-0f15-4ba3-9df2-5b9f4860e27e" class="bulleted-list"><li style="list-style-type:disc"><strong>Descripción:</strong> Este parámetro le indica a <code>curl</code> que realice una solicitud HTTP tipo <code>HEAD</code> en lugar de <code>GET</code>. Una solicitud <code>HEAD</code> es similar a <code>GET</code>, pero en lugar de descargar el contenido completo de una página web, solo descarga los encabezados de respuesta.</li></ul><ul id="bd318b1a-c9e0-4235-b2f6-c407c4178f9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Uso común:</strong> Es útil cuando solo necesitas obtener información sobre un recurso (como la longitud del contenido, el tipo de contenido, o la fecha de modificación) sin descargar todo el contenido.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="663d244e-f600-4459-bbd9-2d7d618daadc" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -I &lt;http://example.com&gt;
+</code></pre><h3 id="62022d73-a953-42c5-9243-db6b72a39424" class="">2. <code><strong>H</strong></code><strong> (o </strong><code><strong>-header</strong></code><strong>)</strong></h3><ul id="165dca08-01a0-4a40-9b72-569dc637246f" class="bulleted-list"><li style="list-style-type:disc"><strong>Descripción:</strong> Este parámetro permite especificar un encabezado HTTP personalizado en la solicitud. Puedes utilizarlo para añadir o modificar encabezados en la solicitud HTTP.</li></ul><ul id="9c72b371-dda8-4e29-b621-50d45aa10f9e" class="bulleted-list"><li style="list-style-type:disc"><strong>Uso común:</strong> Es útil para enviar datos adicionales en las solicitudes, como tokens de autenticación, tipos de contenido, etc.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="eb9d3b83-d252-4935-b612-e165a7b158e7" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -H &quot;Authorization: Bearer token123&quot; &lt;http://example.com&gt;
+</code></pre><h3 id="cd81679a-b272-4d8e-995e-ef5d4bc3b73d" class="">3. <code><strong>X</strong></code><strong> (o </strong><code><strong>-request</strong></code><strong>)</strong></h3><ul id="52c528ca-593b-43f1-8ae9-8e444ce7b73a" class="bulleted-list"><li style="list-style-type:disc"><strong>Descripción:</strong> Este parámetro se utiliza para especificar el tipo de solicitud HTTP que quieres hacer (<code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>, etc.). Aunque por defecto <code>curl</code> utiliza <code>GET</code>, puedes cambiarlo con <code>X</code> a cualquier otro método HTTP.</li></ul><ul id="00349750-6c18-49fc-b821-932f0e0cf66f" class="bulleted-list"><li style="list-style-type:disc"><strong>Uso común:</strong> Es útil cuando necesitas hacer solicitudes que no son de tipo <code>GET</code>, como enviar datos con <code>POST</code> o actualizar un recurso con <code>PUT</code>.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="49746da5-1faf-41e9-adc7-20cc16307a0d" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -X POST &lt;http://example.com&gt;
+</code></pre><h3 id="f9624dfb-a500-4901-abe5-c2b7cc0fdc8c" class="">4. <code><strong>s</strong></code><strong> (o </strong><code><strong>-silent</strong></code><strong>)</strong></h3><ul id="a4599767-f291-460b-933d-8687dbcc5936" class="bulleted-list"><li style="list-style-type:disc"><strong>Descripción:</strong> Este parámetro suprime el progreso de la transferencia, así como los mensajes de error. Es decir, hace que <code>curl</code> funcione en modo &quot;silencioso&quot;.</li></ul><ul id="2b1b0253-a615-451b-bbce-87575e4c1fbe" class="bulleted-list"><li style="list-style-type:disc"><strong>Uso común:</strong> Es útil cuando estás ejecutando un script o una tarea automatizada y no necesitas ver el progreso o mensajes de error en la terminal.</li></ul><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="69e16e17-b891-4165-8737-e5c8598bb110" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -s &lt;http://example.com&gt;
+</code></pre><p id="e31d7af1-2667-46b2-bb2d-e0d00e9c3a0d" class="">Estos parámetros permiten un mayor control sobre las solicitudes HTTP que realizas con <code>curl</code>, y son útiles en diferentes situaciones según lo que necesites hacer.</p><p id="c8d6f18b-025f-4eaf-9727-507b24235f8e" class="">
+</p><ol type="1" id="920c5aa0-a870-4d51-b8ba-84228425af25" class="numbered-list" start="8"><li>Ejecute el comando curl sin ningún parámetro adicional y acceda a<br/><br/><a href="http://www.redes.unlp.edu.ar/">www.redes.unlp.edu.ar</a>. Luego responda:<br/>a. ¿Cuántos requerimientos realizó y qué recibió? Pruebe redirigiendo la salida<br/>(&gt;) del comando curl a un archivo con extensión html y abrirlo con un<br/>navegador<br/><p id="adfe336b-e688-46f4-a774-0324c820bcf5" class="block-color-yellow_background">Al realizar el comando curl sin parámetro adicional , ejecuté un requerimiento GET y recibí un html. DUDA: NO ENTENDI QUE HAY QUE HACER DESPUÉS</p></li></ol><p id="9c816ef6-698f-4bfb-aa01-62074db266b0" class="">b. ¿Cómo funcionan los atributos href de los tags link e img en html? (se lo robé a Agus)</p><p id="76ac0ec6-d9e4-4731-8639-f0392c52b6c5" class="">  </p><p id="f3c9b5dd-9282-4eb0-aeec-e87d32677893" class="">El atributo href en la etiqueta  se utiliza para enlazar recursos externos y el atributo src en la etiqueta se utiliza para especificar la ubicación de la imagen que se mostrará en la página web. En ambos casos, el navegador realiza solicitudes HTTP/HTTPS para descargar los recursos externos especificados en las URLs de los atributos href o src. Luego, dependiendo del tipo de recurso, realiza acciones adicionales como aplicar estilos en el caso de las hojas de estilo o mostrar imágenes en el caso de las etiquetas.</p><p id="2518d4fa-a4bf-440e-9c0e-dc972e8defa2" class=""><br/>c. Para visualizar la página completa con imágenes como en un navegador,<br/>¿alcanza con realizar un único requerimiento? Si alcanza con uno solo<br/></p><p id="7015bce9-eb86-4177-8f4f-baf4b5dfcf2b" class=""><br/>d. ¿Cuántos requerimientos serían necesarios para obtener una página que<br/>tiene dos CSS, dos Javascript y tres imágenes? Diferencie cómo funcionaría<br/>un navegador respecto al comando curl ejecutado previamente<br/></p><p id="3c192cda-bfa6-45f3-85b6-1f0421cefb9b" class="">No, no alcanza con un único requerimiento. Cada recurso, como un archivo<br/>CSS, un archivo JavaScript o una imagen, se solicita por separado al servidor.<br/>Se necesitarán:<br/>1 requerimiento para el archivo base HTML<br/>1 requerimiento para el favicon<br/>2 requerimientos para CSS<br/>2 requerimientos para Javascript<br/>3 requerimientos para las tres imágenes<br/>Si el HTML tiene algún atributo href también se realizarán los requerimientos correspondientes para cada atributo. curl solo realizara un solo requerimiento (el archivo base HTML), requiere solicitudes manuales.<br/></p><ol type="1" id="45f7ecc5-df7a-4aec-abef-96a04ea08717" class="numbered-list" start="9"><li>Ejecute a continuación los siguientes comandos:<br/>curl -v -s <br/><a href="http://www.redes.unlp.edu.ar/">www.redes.unlp.edu.ar</a> &gt; /dev/null<figure id="ed835c20-6867-4e41-8fcb-481f5d43c3ae" class="image"><img style="width:446px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/6ffbb367-596a-4bbd-8151-c2aa567c73ea/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=cca9c52bf809fe283f1084590a4d4291823106c1b5f0cd8ace9532a65b037b92&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="c0653dc0-e8e8-4278-b751-c6a13e12b4a5" class=""><br/>curl -I -v -s <br/><a href="http://www.redes.unlp.edu.ar/">www.redes.unlp.edu.ar</a></p><figure id="6866ecf3-8dac-44b5-a8ae-04edff86e490" class="image"><img style="width:308.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/a45876ba-505c-4102-a44a-33fa9db9d742/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=aa7e320bba4ca54ae018a32f851af219596897fcb7fb79b33a0ee503702ef788&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="d2f08450-96a8-4732-89e5-4a8475485a40" class=""><br/>a. ¿Qué diferencias nota entre cada uno?<br/></p><p id="455354f4-ea04-4de1-b01a-98bd4c372f05" class="">La diferencia es que en el segundo se repiten las líneas de encabezado </p><p id="f906d907-6167-4516-9650-9ac88a842d63" class=""><br/>b. ¿Qué ocurre si en el primer comando se quita la redirección a /dev/null? ¿Por qué no es necesaria en el segundo comando?<br/></p><p id="69e32664-b4c2-4b4e-aafe-f95d5226d7f4" class="">Cuando quito la redirección a /dev/null me devuelve lo mismo y el código html.   <strong>Por qué no es necesaria en el segundo comando:</strong> En el segundo comando, solo se obtienen los encabezados debido a la opción <code>-I</code>, por lo que no hay cuerpo de respuesta (contenido HTML) que redirigir o eliminar.<br/><br/><br/>c. ¿Cuántas cabeceras viajaron en el requerimiento? ¿Y en la respuesta?<br/></p><p id="c0761cc0-9a25-48d0-a834-a12f0141f374" class="">En el requerimiento viajaron 3 cabeceras y en la respuesta 7 </p><p id="057ef547-2d38-4f69-8960-2e7e89ee2a2a" class="">10. ¿Qué indica la cabecera Date?</p><ol type="1" id="b69ecd09-6ce7-4b17-b853-f44e32b2ad7f" class="numbered-list" start="10"><li>La cabecera Date indica fecha y hora en la que se creó y envió la rta HTTP por parte del servidor, es decir, el momento en el que el servidor recupera el objeto de su sistema de archivos, lo inserta en el mensaje de respuesta y envía el mensaje de respuesta</li></ol><p id="bb8a38ab-2b0c-466d-b829-7e7640fc80d6" class="">
+</p></li></ol><ol type="1" id="e8c9b8e2-7c20-4afb-8086-b3941a71485d" class="numbered-list" start="10"><li>En HTTP/1.0, ¿cómo sabe el cliente que ya recibió todo el objeto solicitado de manera<br/>completa? ¿Y en HTTP/1.1?<br/></li></ol><h3 id="8b9707e7-110b-4407-8b52-46aee0a0bd9c" class="">11. Mecanismos para determinar el final del contenido en HTTP/1.0 y HTTP/1.1</h3><p id="4635c9c0-852b-486b-adb8-3c706bd75b91" class=""><strong>En HTTP/1.0:</strong></p><ul id="0b99410e-368c-4a71-b2d8-40ef32ec1cc7" class="bulleted-list"><li style="list-style-type:disc"><strong>Cierre de la conexión:</strong> En HTTP/1.0, la forma principal en que un cliente sabe que ha recibido todo el contenido es cuando el servidor cierra la conexión TCP. Esto indica al cliente que ya no hay más datos que recibir.</li></ul><ul id="265904fe-e7a6-47c4-a36f-716460dcc3a3" class="bulleted-list"><li style="list-style-type:disc"><strong>Cabecera </strong><code><strong>Content-Length</strong></code><strong>:</strong> Otra forma es si el servidor envía una cabecera <code>Content-Length</code>, la cual especifica el tamaño exacto del cuerpo del mensaje en bytes. El cliente sabe que ha recibido todo el contenido cuando el número de bytes recibidos coincide con el valor de <code>Content-Length</code>.</li></ul><p id="b3feb807-407c-411f-827d-032de197f566" class=""><strong>En HTTP/1.1:</strong></p><ul id="737c1842-46ef-44f8-bab6-21cb149cbd39" class="bulleted-list"><li style="list-style-type:disc"><strong>Cabecera </strong><code><strong>Content-Length</strong></code><strong>:</strong> Al igual que en HTTP/1.0, si el servidor envía esta cabecera, el cliente puede utilizarla para saber cuándo ha recibido todo el contenido.</li></ul><ul id="f8ab4f01-b96f-435e-b2bf-4a8ccbd9acbb" class="bulleted-list"><li style="list-style-type:disc"><strong>Transfer-Encoding: chunked:</strong> HTTP/1.1 introduce un método llamado &quot;transferencia en bloque&quot; (<code>chunked transfer encoding</code>). En este caso, el contenido se envía en una serie de bloques, cada uno precedido por un tamaño de bloque en bytes. El final del contenido se indica con un bloque de tamaño 0, seguido de una línea vacía.</li></ul><ul id="59267fc9-e16c-4e4b-af76-d8f7965c3f83" class="bulleted-list"><li style="list-style-type:disc"><strong>Conexión persistente:</strong> HTTP/1.1 también permite conexiones persistentes por defecto, es decir, la conexión TCP no se cierra automáticamente después de que se envía la respuesta. Sin embargo, el cliente puede determinar que ha recibido todos los datos utilizando los mecanismos mencionados anteriormente (como <code>Content-Length</code> o <code>Transfer-Encoding: chunked</code>).</li></ul><ol type="1" id="3a515d3b-0758-48fb-8710-86a8865c0ebe" class="numbered-list" start="12"><li>Investigue los distintos tipos de códigos de retorno de un servidor web y su significado.<br/>Considere que los mismos se clasifican en categorías (2XX, 3XX, 4XX, 5XX)<br/></li></ol><h3 id="53eb1dfa-e6d4-4202-8a8c-7173cf2c77f3" class="">12. Códigos de estado HTTP y su clasificación</h3><p id="2d605a10-6b2b-4d90-ad28-cf277c364773" class="">Los códigos de estado HTTP son respuestas estandarizadas enviadas por el servidor web para indicar el resultado de la solicitud HTTP. Estos códigos se dividen en cinco categorías principales:</p><ol type="1" id="556edfca-c55c-4db8-be66-de7da2ee2681" class="numbered-list" start="1"><li><strong>1XX: Respuestas informativas</strong><ul id="470f9cef-2b86-4c4f-9db5-4dca4b3d9558" class="bulleted-list"><li style="list-style-type:disc"><strong>100 Continue:</strong> El servidor ha recibido los encabezados de la solicitud y el cliente debe proceder a enviar el cuerpo de la solicitud (si corresponde).</li></ul><ul id="8cdb5460-5fbb-4e5d-b4b7-0640c059a1fb" class="bulleted-list"><li style="list-style-type:disc"><strong>101 Switching Protocols:</strong> El servidor acepta el cambio de protocolo solicitado por el cliente.</li></ul></li></ol><ol type="1" id="2174ed98-3c60-44d1-bf68-62a9bd1dc8ae" class="numbered-list" start="2"><li><strong>2XX: Éxito</strong><ul id="461e29ac-d7d7-43a7-bb7c-955757c1e3b1" class="bulleted-list"><li style="list-style-type:disc"><strong>200 OK:</strong> La solicitud ha sido procesada con éxito.</li></ul><ul id="be4c9b0d-3f95-4273-b797-d1b844b7869c" class="bulleted-list"><li style="list-style-type:disc"><strong>201 Created:</strong> La solicitud ha sido cumplida y se ha creado un nuevo recurso.</li></ul><ul id="63e71892-3e0f-414a-8e92-b87489b8cef7" class="bulleted-list"><li style="list-style-type:disc"><strong>202 Accepted:</strong> La solicitud ha sido aceptada para su procesamiento, pero el procesamiento aún no se ha completado.</li></ul><ul id="08731ac8-50a4-430d-9fa1-b45c7a540a03" class="bulleted-list"><li style="list-style-type:disc"><strong>204 No Content:</strong> La solicitud se ha completado con éxito, pero no hay contenido para devolver.</li></ul></li></ol><ol type="1" id="87b8be91-129b-4fd9-beef-0f835ae19f09" class="numbered-list" start="3"><li><strong>3XX: Redirección</strong><ul id="853610fe-143d-4eb8-80f5-35e9a2567eaa" class="bulleted-list"><li style="list-style-type:disc"><strong>301 Moved Permanently:</strong> El recurso solicitado ha sido movido de forma permanente a una nueva URI.</li></ul><ul id="7188e535-a312-4cfa-87fc-5c68a25a981f" class="bulleted-list"><li style="list-style-type:disc"><strong>302 Found:</strong> El recurso solicitado se encuentra temporalmente en una URI diferente.</li></ul><ul id="c6c5b801-c5a1-4e6a-a429-0402647e3d72" class="bulleted-list"><li style="list-style-type:disc"><strong>304 Not Modified:</strong> El recurso no ha sido modificado desde la última solicitud.</li></ul></li></ol><ol type="1" id="d18b3167-722e-4810-8449-1f65cb1791f1" class="numbered-list" start="4"><li><strong>4XX: Error del cliente</strong><ul id="913843f7-9588-4017-90f1-adf9d3b6ff24" class="bulleted-list"><li style="list-style-type:disc"><strong>400 Bad Request:</strong> El servidor no puede procesar la solicitud debido a un error del cliente (p. ej., sintaxis incorrecta).</li></ul><ul id="e502de56-7e5b-4542-848c-0f5d9c163fcd" class="bulleted-list"><li style="list-style-type:disc"><strong>401 Unauthorized:</strong> La solicitud requiere autenticación del usuario.</li></ul><ul id="538aca21-471a-4fbd-9c03-8a7c3d2252ef" class="bulleted-list"><li style="list-style-type:disc"><strong>403 Forbidden:</strong> El servidor comprende la solicitud pero se niega a autorizarla.</li></ul><ul id="5cd42b4f-2310-43df-b5a5-dd403ad8ea17" class="bulleted-list"><li style="list-style-type:disc"><strong>404 Not Found:</strong> El recurso solicitado no se ha encontrado en el servidor.</li></ul></li></ol><ol type="1" id="752e0a98-4abc-4d6f-aae9-e2e38fd6b51b" class="numbered-list" start="5"><li><strong>5XX: Error del servidor</strong><ul id="70996d32-1956-44a8-8e70-433c73b00abf" class="bulleted-list"><li style="list-style-type:disc"><strong>500 Internal Server Error:</strong> El servidor encontró una condición inesperada que le impidió cumplir con la solicitud.</li></ul><ul id="31b5cfea-7684-4c35-aee6-408fae0ccc39" class="bulleted-list"><li style="list-style-type:disc"><strong>502 Bad Gateway:</strong> El servidor recibió una respuesta inválida de un servidor de apoyo al intentar completar la solicitud.</li></ul><ul id="5eb320a8-537f-4878-b7cd-d6e8fe2ad2a1" class="bulleted-list"><li style="list-style-type:disc"><strong>503 Service Unavailable:</strong> El servidor no está disponible temporalmente, generalmente debido a mantenimiento o sobrecarga.</li></ul></li></ol><p id="63af3cea-d884-4839-a236-1a6d6b92ada1" class="">13. Utilizando curl, realice un requerimiento con el método HEAD al sitio <a href="http://www.redes.unlp.edu.ar/">www.redes.unlp.edu.ar</a> e indique:</p><figure id="4d403678-ab85-419b-ad53-1079e6c2290d" class="image"><img style="width:336.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/31440dd3-b366-4e36-be78-2e30ed484086/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=6f55f325b2a91bda29086e523e7572b2e3904e968d5194cae62e8c8aa57898bd&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="b03e0f54-1c0e-4c6b-baee-a60ba6d3890c" class=""><br/>a. ¿Qué información brinda la primera línea de la respuesta?<br/></p><p id="72a90ae1-cd5d-4bfe-a2c3-9808cc1d5597" class="">La primera línea de respuesta informa la versión del prrotocolo que es HTTP/1.1, el código de estado junto con un mensaje realcionado a este que es el 200 indicando que la soliciutd fue procesada con éxito </p><p id="b4615c9f-8d04-4f74-811b-a893589fa288" class=""><br/>b. ¿Cuántos encabezados muestra la respuesta?<br/></p><p id="794694e5-4f17-4420-8b39-25bb2094a600" class="">6 encabezados  </p><p id="87c5df88-e071-487f-be5d-9a9998d3b70f" class=""><br/>c. ¿Qué servidor web está sirviendo la página?<br/></p><p id="c105a870-d2e8-41ef-8d97-bd7f410f2bba" class="">Apache/2.4.56</p><p id="e4c0c115-448a-4544-89d3-94a5a9232e59" class="">
+</p><p id="ed45a305-81a3-44de-9271-dd870931db3e" class="">d. ¿El acceso a la página solicitada fue exitoso o no?</p><p id="0680760d-0956-4da4-be4c-146632760b8d" class="">Si </p><p id="aee39042-2005-48b8-a3e5-036051c997d4" class=""><br/>e. ¿Cuándo fue la última vez que se modificó la página?<br/></p><p id="c1010fff-7f56-4811-9d56-6fc04fa7202d" class="">El 19 de marzo de 2023</p><p id="7065bde5-8251-44d8-85e9-35aba1515a10" class=""><br/>f. Solicite la página nuevamente con curl usando GET, pero esta vez indique que quiere obtenerla sólo si la misma fue modificada en una fecha posterior a la que efectivamente fue modificada. ¿Cómo lo hace? ¿Qué resultado obtuvo? ¿Puede explicar para qué sirve?<br/></p><figure id="fcdeedfe-7ab1-4600-8440-565f33eb3060" class="image"><img style="width:474px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/d33330b0-791a-401c-b5e3-2301caedc843/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=86978979b0e8de806a5af110e65dd38d1139c9138dfe2457fd27a1eff32309c6&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="7c5dbc13-09d2-4f84-8ead-cc08a63da03b" class="">Si se quiere acceder a una página recién cuando sea modifica y esta pesara (mucho), nos ahorramos todo el intercambio en el caso de que no haya sido modificada, ya que es la misma que tendríamos guardada.</p><ol type="1" id="3b621e30-4c35-40f3-a49b-1a14bae76a63" class="numbered-list" start="14"><li>Utilizando curl, acceda al sitio <a href="http://www.redes.unlp.edu.ar/restringido/index.php">www.redes.unlp.edu.ar/restringido/index.php</a> y siga las<br/>instrucciones y las pistas que vaya recibiendo hasta obtener la respuesta final. Será de<br/>utilidad para resolver este ejercicio poder analizar tanto el contenido de cada página como<br/>los encabezados.<br/></li></ol><p id="26dec4df-b354-40fe-b6f0-29f30f99a1b9" class="">curl  <a href="http://www.redes.unlp.edu.ar/restringido/index.php">www.redes.unlp.edu.ar/restringido/index.php</a></p><figure id="3d2ddbe3-afcf-454d-9ff1-ac1975bc2179" class="image"><img style="width:708px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/c6a40898-e13e-4f63-9180-7218e908a520/6783de04-95ad-4179-a35e-718081a480a8.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=96e0976fb8c19508351370ea75cc71d666522cdda29183dcf443d0bfd3a6c478&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="372494f8-0ac9-4e10-a3f9-27a181244c87" class="">
+</p><p id="cf47b783-490d-41d5-9b05-950084da3891" class="">El método de autenticación &quot;Basic&quot; en HTTP es una forma simple de autenticar<br/>a los usuarios utilizando credenciales (nombre de usuario y contraseña). Se<br/>utiliza en combinación con HTTPS para mayor seguridad.<br/>El motivo por el cual las credenciales se codifican en base64 es principalmente<br/>para evitar problemas con caracteres especiales que podrían afectar la<br/>comunicación HTTP. Base64 es una forma de representar datos binarios en<br/>una cadena de caracteres ASCII, lo que lo hace seguro para transmitir a través<br/>de HTTP.<br/></p><p id="83d2fcb8-2d7d-46e0-8661-064b704049e3" class="">Para autenticarse con <code>curl</code> utilizando <code>base64</code>, normalmente se usa para enviar credenciales a través de la autenticación HTTP Basic. Aquí tienes un ejemplo de cómo hacerlo:</p><h3 id="aa057442-b82e-470c-84ca-8b7156f394ea" class="">1. Codifica las credenciales en base64:</h3><p id="234b2099-4f9a-4987-b6bb-dbea2903c46b" class="">Primero, necesitas codificar las credenciales (usuario y contraseña) en formato <code>base64</code>. El formato es <code>usuario:contraseña</code>.</p><p id="f0021aac-af06-440e-8394-c9cf670fcab7" class="">Supongamos que tu usuario es <code>miusuario</code> y tu contraseña es <code>micontraseña</code>. Puedes codificarlo en <code>base64</code> con el siguiente comando:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7a27d274-87be-4122-a490-45d5dc233a35" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">echo -n &#x27;miusuario:micontraseña&#x27; | base64
+</code></pre><p id="895fffc9-64f0-4c41-be5f-76b79fde8cf1" class="">Esto te dará una cadena codificada que se verá algo así como <code>bWl1c3VhcmlvOm1pY29udHJhc2VuYQ==</code>.</p><h3 id="e1b629ed-364d-4159-a11d-91dbae569afb" class="">2. Usa la cadena base64 con curl:</h3><p id="fc0c74c4-cdd9-40f9-a8b3-7ec58b16d884" class="">Una vez que tengas la cadena codificada, puedes usarla en tu solicitud <code>curl</code> de la siguiente manera:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8c5d5adb-22aa-4e7a-a51f-f01f2c224194" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -H &quot;Authorization: Basic bWl1c3VhcmlvOm1pY29udHJhc2VuYQ==&quot; &lt;http://example.com/recurso&gt;
+</code></pre><h3 id="aab2e645-ba6c-47f0-844d-c9442f2ac911" class="">Alternativa:</h3><p id="a4082415-ab3e-4355-8006-6173d9ce342b" class="">Si prefieres que <code>curl</code> haga la codificación <code>base64</code> por ti, puedes pasar las credenciales directamente con el flag <code>-u</code>:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="395b38fc-3389-4e79-899b-a53afa94337f" class="code"><code class="language-Shell" style="white-space:pre-wrap;word-break:break-all">curl -u miusuario:micontraseña &lt;http://example.com/recurso&gt;
+</code></pre><p id="db0183de-6143-48d2-afbf-c4f9190b40dc" class=""><code>curl</code> se encargará de codificar las credenciales y de agregarlas en el encabezado <code>Authorization</code>.</p><h3 id="89aa6e49-978a-4d30-8489-bee493f630e8" class="">Notas:</h3><ul id="50a9653f-e96f-4e36-8c8d-d471428d097e" class="bulleted-list"><li style="list-style-type:disc">Asegúrate de no dejar espacios en la salida de <code>echo</code> usando el flag <code>n</code>.</li></ul><ul id="1d6bda4f-57fd-4a7f-88ea-e61074d6661d" class="bulleted-list"><li style="list-style-type:disc">Utiliza <code>https</code> en lugar de <code>http</code> para mantener la seguridad de las credenciales.</li></ul><p id="945ef01d-e780-4bd7-a14f-aff645722300" class="">¿Te gustaría hacer alguna otra consulta sobre este tema?</p><figure id="9bc2439b-0b0c-4a76-a9bb-499e2e1f8fb1" class="image"><img style="width:1366px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/3bf03660-467e-4120-af95-0440e407c3f3/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a8bad983f355538236c685d7beab3e7f131a03e59200699373e9d04727688616&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><figure id="fc8f7b5b-be16-4439-988e-4db99db748f6" class="image"><img style="width:1128px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/0ae54e04-104d-464d-a22d-dd470c826e42/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=f52f42552430acfcbe6658bc085a2c9a8401e8a2e6f051c2acb7c6dba059425f&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="1eb4016c-8901-4e68-8188-240bd4dc12c7" class="">
+</p><ol type="1" id="b10b47b0-1180-41bf-b08e-c755187b88bc" class="numbered-list" start="15"><li>Utilizando la VM, realice las siguientes pruebas:<br/>a.  Ejecute el comando ’curl <br/><a href="http://www.redes.unlp.edu.ar/extras/prueba-http-1-0.txt%E2%80%99">www.redes.unlp.edu.ar/extras/prueba-http-1-0.txt’</a> y<br/>copie la salida completa (incluyendo los dos saltos de línea del final).<br/></li></ol><figure id="6bb851ea-d2fc-4b4e-af2a-f18c57239cf3" class="image"><img style="width:336.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/8130e31a-0dd7-4e5f-a493-7f81574b319b/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=58181d7da1231a9c1719c52d969efeb923fb6d255819d4a0aa39c643e9914834&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="4e78d02f-d5cf-4b14-b9a7-19310efbb96f" class="">
+</p><p id="6f2055a3-a820-43e7-acb9-ad23c29260d8" class=""><br/>b. Desde la consola ejecute el comando telnet <br/><a href="http://www.redes.unlp.edu.ar/">www.redes.unlp.edu.ar</a> 80 y<br/>luego pegue el contenido que tiene almacenado en el portapapeles. ¿Qué<br/>ocurre luego de hacerlo?<br/></p><p id="1ebe829e-c53e-4d6b-bb44-8429d4a0107c" class="">nunca me cargó ese comando</p><p id="ea0c3266-9634-4909-bef8-1ebdbb4c3e08" class=""><br/>c. Repita el proceso anterior, pero copiando la salida del recurso<br/>/extras/prueba-http-1-1.txt. Verifique que debería poder pegar varias veces el<br/>mismo contenido sin tener que ejecutar el comando telnet nuevamente.<br/></p><ol type="1" id="619d1608-1455-4c2a-866a-1aa4678d5ac9" class="numbered-list" start="16"><li>En base a lo obtenido en el ejercicio anterior, responda:<br/>a. ¿Qué está haciendo al ejecutar el comando telnet?<br/>b. ¿Qué método HTTP utilizó? ¿Qué recurso solicitó?<br/>c. ¿Qué diferencias notó entre los dos casos? ¿Puede explicar por qué?<br/>d. ¿Cuál de los dos casos le parece más eficiente? Piense en el ejercicio donde<br/>analizó la cantidad de requerimientos necesarios para obtener una página<br/>con estilos, javascripts e imágenes. El caso elegido, ¿puede traer asociado<br/>algún problema?<br/></li></ol><p id="bb72b714-b372-4e98-a9f9-7724be676377" class="">ver alguna resolución de los anteriores</p><ol type="1" id="e58e1222-c688-4eb7-94f3-6127b16d85dc" class="numbered-list" start="17"><li>En el siguiente ejercicio veremos la diferencia entre los métodos POST y GET. Para ello,<br/>será necesario utilizar la VM y la herramienta Wireshark. Antes de iniciar considere:<br/>■ Capture los paquetes utilizando la interfaz con IP 172.28.0.1. (Menú “Capture<br/>-&gt;Options”. Luego seleccione la interfaz correspondiente y presione Start).<br/></li></ol><figure id="9e65493c-77b5-49fb-a6b0-b89c51db6595" class="image"><img style="width:1366px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/f419f8cc-c041-424c-a0ce-6286535c13cd/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=07251d3ff6b87747bd8ba44650cc5b9b9584229eaa50ba010445dfa9c0bcd5a4&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="4c3fa6af-298f-45c0-96e5-bd1b2bfe5b47" class="">(seguir despues)</p><p id="eb464140-40c2-4e5b-8cd4-b93c8b58576f" class="">
+</p><ol type="1" id="edc5aab9-f8bc-406f-91ee-75a532769703" class="numbered-list" start="18"><li>Investigue cuál es el principal uso que se le da a las cabeceras Set-Cookie y Cookie en<br/>HTTP y qué relación tienen con el funcionamiento del protocolo HTTP.<br/><p id="e34c9c2d-237c-45fb-8c44-9867e36aa128" class=""><em><strong>Cookies:</strong></em></p><ul id="bd70b7de-1bd7-4b6b-afc3-6bc2139b2d7d" class="bulleted-list"><li style="list-style-type:disc">Las cookies son un mecanismo alternativo usado por los sitios para hacer un seguimiento de usuarios</li></ul><ul id="2345cd87-db63-4d70-8326-71d9f2a314ef" class="bulleted-list"><li style="list-style-type:disc">Estan formadas por 4 componentes<ul id="633e5625-3c15-4078-9645-8cae9278e323" class="bulleted-list"><li style="list-style-type:circle">1 línea de cabecera de cookie en el mensaje HTTP de rta</li></ul><ul id="f637e1b4-6a32-4858-86d2-e33c87997962" class="bulleted-list"><li style="list-style-type:circle">1 línea de cabecera de cookie en el mensaje HTTP de petición</li></ul><ul id="4dd66089-e772-4108-ad5c-b811c96103cb" class="bulleted-list"><li style="list-style-type:circle">1 archivo de cookie almacenado en el sistema del usuario y gestionado por el navegador del usuario</li></ul><ul id="1924ae11-5301-4f03-a8e0-8a5ef97d6d83" class="bulleted-list"><li style="list-style-type:circle">1 bd de respaldo  en el sitio web </li></ul></li></ul><ul id="f66e8c06-d5a5-4359-aed3-89aff01c3e5c" class="bulleted-list"><li style="list-style-type:disc">Mecanismo<ul id="1f6279c3-9d6b-4ed5-9cf8-4e93a3115dff" class="bulleted-list"><li style="list-style-type:circle">una persona accede a un sitio desde su pc, dicho sitio usa cookies el cual crea un ID y en su BD una entrada con ese ID</li></ul><ul id="a8190b84-ac44-4c4c-93eb-aba9c2d3ed0f" class="bulleted-list"><li style="list-style-type:circle">en la rta, el servidor incluye al navegador de la persona en la rta HTTP la cabecera set-cookie</li></ul></li></ul><ul id="fa1c8ea0-fee5-4362-8dab-2447865bd543" class="bulleted-list"><li style="list-style-type:disc">Set cookie contiene el ID, el cual será incluído en cada petición de esa persona a ese sitio y así el navegador hace un seguimiento de la actividad de la persona en el sitio </li></ul><ul id="f1a97e50-4c05-4e5a-8535-e7933fed5342" class="bulleted-list"><li style="list-style-type:disc">Permite autenticar usuarios y crear una capa de sesión HTTP sin estado</li></ul></li></ol><ol type="1" id="1053efe3-4b1e-4fee-888f-6c9d09f71726" class="numbered-list" start="19"><li>¿Cuál es la diferencia entre un protocolo binario y uno basado en texto? ¿De qué tipo<br/>de protocolo se trata HTTP/1.0, HTTP/1.1 y HTTP/2?<br/></li></ol><p id="9a97f313-eed7-447b-98bd-aa431c732131" class=""><strong><span style="border-bottom:0.05em solid">Protocolo binario </span></strong></p><ul id="e911ef0c-dae9-44bc-a7ab-8addc5c8abdc" class="bulleted-list"><li style="list-style-type:disc">Transmite datos en forma de patrones de bits que las máquinas pueden entender directamente</li></ul><ul id="f30745cd-efc6-41a5-b4ac-8fec26c49334" class="bulleted-list"><li style="list-style-type:disc">Suele ser más eficiente en términos de velocidad y uso de ancho de banda, ya que no se desperdicia espacio en caracteres de formato o en la interpretación de texto legible por humanos.</li></ul><p id="4535b36b-b8a7-455e-aeda-f3d48ab0d52b" class=""><strong><span style="border-bottom:0.05em solid">Protocolo basado en textos</span></strong></p><ul id="b2c74f6d-3c04-49cf-b95e-82ab10cf0d41" class="bulleted-list"><li style="list-style-type:disc">envía datos como cadenas legibles utilizando caracteres como letras, números y símbolos.</li></ul><ul id="9a771d33-aa24-48f9-a322-9c340bd74eed" class="bulleted-list"><li style="list-style-type:disc">Estos caracteres suelen estar codificados en ASCII o UTF-8. Aunque esto hace que la comunicación entre sistemas sea más comprensible para los humanos, puede ser menos eficiente en términos de velocidad y uso de ancho de banda, ya que se requiere más información para representar los mismos datos que en formato binario.</li></ul><p id="c284b544-5a73-4391-81ce-8170a49c27b3" class=""><em><span style="border-bottom:0.05em solid">HTTP/1.0, HTTP/1.1 son protocolos basados en textos mientras que HTTP/2<br/>es un protocolo binario<br/></span></em></p><ol type="1" id="4daaf532-b327-4463-8b3b-73990b311d28" class="numbered-list" start="20"><li>Responder las siguientes preguntas:<br/>a. ¿Qué función cumple la cabecera Host en HTTP 1.1? ¿Existía en HTTP 1.0?<br/>¿Qué sucede en HTTP/2? (Ayuda:  <br/><a href="https://undertow.io/blog/2015/04/27/An-in-depth-overview-of-HTTP2.html">https://undertow.io/blog/2015/04/27/An-in-depth-overview-of-HTTP2.html</a> para HTTP/2)<p id="c776201b-ed80-45b0-ac49-df6301586ec1" class="">La cabecera “Host” en HTTP 1.1 tiene la función de indicar el nombre de dominio (se puede indicar opcionalmente el puerto) al que se está haciendo la solicitud dentro del encabezado de la petición. La inclusión de la cabecera &quot;Host&quot; en una solicitud es obligatoria. Esta es sumamente importante en servidores que alojan múltiples sitios web en una misma<br/>dirección IP, ya que permite al servidor saber a qué sitio se está dirigiendo la solicitud. También es importante mencionar que las cachés proxy web necesitan la información proporcionada por la línea de cabecera del host.<br/></p><p id="f6470a39-1d4b-4ed5-b178-f3cea79236e4" class="">la cabecera <code>Host</code> en HTTP/1.1 es fundamental porque permite a un servidor web manejar múltiples sitios web en la misma dirección IP. Aquí tienes un ejemplo de cómo se utiliza en una solicitud HTTP:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f53b367b-959c-4f47-8b8b-5712241191aa" class="code"><code class="language-Plain Text" style="white-space:pre-wrap;word-break:break-all">GET /pagina-ejemplo.html HTTP/1.1
+Host: www.ejemplo.com
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Language: es-ES,es;q=0.9
+Accept-Encoding: gzip, deflate, br
+</code></pre><p id="b5dc2c0e-9e0f-4763-8d14-00908bd2c485" class="">En este ejemplo:</p><ul id="d9c3850a-0ab9-4af7-b7eb-375c8172deb8" class="bulleted-list"><li style="list-style-type:disc"><code>GET /pagina-ejemplo.html HTTP/1.1</code> indica que el cliente está solicitando el recurso <code>/pagina-ejemplo.html</code> utilizando HTTP/1.1.</li></ul><ul id="c97f443d-7ee2-4c01-9c38-8be5d21e9fb8" class="bulleted-list"><li style="list-style-type:disc"><code>Host: www.ejemplo.com</code> especifica el nombre del host al que el cliente está tratando de acceder. Esto es crucial para los servidores que alojan múltiples dominios en la misma IP, ya que permite al servidor saber a qué sitio debe responder.</li></ul><ul id="168c1e13-1d16-4306-a670-9f74c12954cf" class="bulleted-list"><li style="list-style-type:disc">Las otras cabeceras (<code>Connection</code>, <code>User-Agent</code>, <code>Accept</code>, etc.) proporcionan información adicional sobre la solicitud y las preferencias del cliente.</li></ul><p id="2587cf63-e6e2-4e49-bd37-96c2955896c3" class="">La cabecera <code>Host</code> es obligatoria en HTTP/1.1 y permite al servidor dirigir la solicitud al contenido correcto según el dominio solicitado.</p><p id="ee785425-0293-4009-a244-6d3e64925680" class=""><br/>En HTTP 1.0, la cabecera &quot;Host&quot; no es obligatoria pero puede ser necesaria dependiendo de cómo el servidor web esté configurado. Esto significa que si la cabecera &quot;Host&quot; no estaba presente en una solicitud HTTP 1.0, el servidor asumiría que la solicitud estaba destinada al dominio asociado con la dirección IP del servidor.<br/>En HTTP/2, la cabecera &quot;Host&quot; es reemplazada por “:authority”<br/></p><p id="52986c4a-9591-4379-a5f4-1b4011132edb" class=""><br/>b. En HTTP/1.1, ¿es correcto el siguiente requerimiento?<br/>GET /index.php HTTP/1.1<br/>User-Agent: curl/7.54.0<br/><div class="indented"><p id="d718abee-b387-4146-9398-b82dbceffe35" class="">No, no es correcto ya que falta la cabecera “Host”</p></div></p><p id="f71823cb-125f-4ab8-9e1e-dafa6fb29791" class="">c. ¿Cómo quedaría en HTTP/2 el siguiente pedido realizado en HTTP/1.1 si se<br/>está usando https?<br/>GET /index.php HTTP/1.1<br/>Host: <br/><a href="http://www.info.unlp.edu.ar/">www.info.unlp.edu.ar</a></p><figure id="093c1ace-7fe1-4ad6-a692-206bd35ea41d" class="image"><img style="width:308.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/231237a1-2bcb-49c5-bb09-ecc7b4608394/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=60c1275fa1476b340554ccff56d5f30242fbb5059ca0ab01a68b1d57d74eee9f&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure></li></ol><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5896ac7e-d7a4-4e3b-9eae-9f05307d0346" class="code"><code class="language-JavaScript">:method: get
+:path: /index.php
+:scheme: https
+:authority: www.info.unlp.edu.ar</code></pre><figure id="1e381a0c-efc2-4f9f-a3f2-34176901a2a6" class="image"><img style="width:336.0000305175781px" src="https://prod-files-secure.s3.us-west-2.amazonaws.com/495ee478-335a-4cfb-9d4b-d68056bee0ff/0fbae2a8-5ce0-4e25-b69f-da486717b013/image.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Credential=AKIAT73L2G45HZZMZUHI%2F20240911%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20240911T015453Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=a24d5c90222ac4a2987248100965025f41dd744f397b188a672fb1bddb1fc3d2&amp;X-Amz-SignedHeaders=host&amp;x-id=GetObject"/></figure><p id="3ae069bc-aa54-46d8-95f4-db0a030b45ad" class=""><br/>a. ¿Qué versión de HTTP podría estar utilizando el servidor? <br/><div class="indented"><p id="48b6ea5e-4daa-4b1d-b828-be2c9c85adce" class="">Podría estar usando HTTP 1.0 o HTTP 1.1<br/><br/></p></div></p><p id="db49aa76-577a-469e-ae78-012e8d318e37" class="">b. ¿Qué método está utilizando? Dicho método, ¿retorna el recurso completo<br/>solicitado?<br/><div class="indented"><p id="746a7d44-6dac-4ff1-b026-562dcece590f" class="">Está usando el método HEAD. No, no retorna el recurso completo, solo incluye el encabezado</p></div></p><p id="85284942-74fe-4af4-bab3-f26fcb3beac6" class=""><br/>c. ¿Cuál es el recurso solicitado?<br/><div class="indented"><p id="95df118e-1434-4f81-9225-03385b8b3759" class="">Está solicitando metodos, me doy cuenta porque dice HEAD /metodos/</p></div></p><p id="b02a72db-2f1c-4cfe-abc1-9b4cfb3ad0d8" class=""><br/>d. ¿El método funcionó correctamente?<br/><div class="indented"><p id="065ae0f5-d9ff-43f6-8bc8-143bec07ab50" class="">Si porque dice 200 ok</p></div></p><p id="af0db865-740e-4149-9260-34130fa45dfe" class=""><br/>e. Si la solicitud hubiera llevado un encabezado que diga:<br/>If-Modified-Since: Sat, 20 Jan 2018 13:02:41 GMT<br/>¿Cuál habría sido la respuesta del servidor web? ¿Qué habría hecho el<br/>navegador en este caso? <br/></p><p id="21e373c5-bb4b-49f0-88ba-fde7c13310d2" class="">El servidor devolvería una respuesta con el código de estado <code>304 Not Modified</code>. Esta respuesta indica que el recurso no ha cambiado desde la última vez que el cliente lo solicitó, y por lo tanto, el cliente puede utilizar su versión en caché del recurso. El navegador se encarga de devolver la misma que tenía guardada en su caché.</p><p id="a45b9e29-5574-45cd-9c47-df6ed93b0ccc" class="">
+</p></div></article></body></html>
